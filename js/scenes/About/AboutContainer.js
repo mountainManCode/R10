@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-import { View, Text, AppRegistry, StyleSheet } from "react-native";
+import { AppRegistry } from "react-native";
 
 import About from "./About";
 
@@ -28,7 +28,7 @@ class AboutContainer extends Component {
   //Fetch data  Loading: false
 
   render() {
-    console.log(this.state.data);
+    // console.log(this.state.data);
     // const { isLoading, data} =this.state;
     // if (isLoading && !data) ? (
     // <Loader />

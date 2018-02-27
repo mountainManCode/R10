@@ -15,7 +15,6 @@ import {
 } from "@expo/ex-navigation";
 
 import Router from "./navigation/routes";
-import About from "./scenes/About/";
 import Store from "./redux/store";
 
 const navigationContext = new NavigationContext({

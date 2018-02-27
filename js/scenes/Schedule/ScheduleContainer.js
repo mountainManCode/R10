@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-// import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, AppRegistry, StyleSheet } from "react-native";
 
 import Schedule from "./Schedule";
 
@@ -11,10 +11,17 @@ class ScheduleContainer extends Component {
     super();
     this.state = {};
   }
+
+  static route = {
+    navigationBar: {
+      title: "Schedule"
+    }
+  };
+
   render() {
     return <Schedule />;
   }
 }
 
-//make this component available to the app
+AppRegistry.registerComponent("schedule", () => App);
 export default ScheduleContainer;

@@ -11,6 +11,13 @@ class FavesContainer extends Component {
     super();
     this.state = {};
   }
+
+  static route = {
+    navigationBar: {
+      title: "Faves"
+    }
+  };
+
   render() {
     return <Faves />;
   }

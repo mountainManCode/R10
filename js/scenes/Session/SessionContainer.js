@@ -11,6 +11,7 @@ class SessionContainer extends Component {
     super();
     this.state = {};
   }
+
   render() {
     return <Session />;
   }
