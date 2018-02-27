@@ -6,16 +6,12 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
-  "rnpm": {
-    "assets": [
-      "./js/assets/fonts"
-    ]
-  },
   "dependencies": {
     "@expo/ex-navigation": "^4.2.0",
     "babel-preset-react-native-stage-0": "^1.0.1",
     "react": "16.2.0",
     "react-native": "0.53.3",
+    "react-native-vector-icons": "^4.5.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
@@ -28,5 +24,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": ["js/assets/fonts"]
   }
 }
