@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-// import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, AppRegistry, StyleSheet } from "react-native";
 
 import About from "./About";
 
@@ -9,23 +9,35 @@ import About from "./About";
 class AboutContainer extends Component {
   constructor() {
     super();
-    this.state = { data: []};
+    this.state = { data: [], isLoading: false };
   }
 
+  static route = {
+    navigationBar: {
+      title: "About"
+    }
+  };
+
   componentDidMount() {
+    this.setState({ isLoading: true });
     fetch("https://r10app-95fea.firebaseio.com/code_of_conduct.json")
       .then(res => res.json())
-      .then(data => this.setState({ data }))
+      .then(data => this.setState({ data, isloading: false }))
       .catch(err => console.log(err));
   }
   //Fetch data  Loading: false
 
   render() {
     console.log(this.state.data);
-
+    // const { isLoading, data} =this.state;
+    // if (isLoading && !data) ? (
+    // <Loader />
+    // ) : (
     return <About data={this.state.data} />;
+    // )
   }
 }
 // loading={this.state.loading}
 //make this component available to the app
+AppRegistry.registerComponent("about", () => App);
 export default AboutContainer;

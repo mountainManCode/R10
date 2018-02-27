@@ -5,12 +5,20 @@
  */
 
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, AppRegistry } from "react-native";
 
+import { NavigationProvider, StackNavigation } from "@expo/ex-navigation";
+
+import Router from "./navigation/routes";
 import About from "./scenes/About/";
 
 export default class App extends Component {
   render() {
-    return <About />;
+    return (
+      <NavigationProvider router={Router}>
+        <StackNavigation initialRoute={Router.getRoute("about")} />
+      </NavigationProvider>
+    );
+    // return <About />;
   }
 }
