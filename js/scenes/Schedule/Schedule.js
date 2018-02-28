@@ -1,15 +1,19 @@
 //import liraries
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 
-import { styles } from "./styles";
+import EventList from "../../components/EventList";
 
-// create a component
-const Schedule = () => (
-  <View style={styles.container}>
-    <Text>Schedule SCENE</Text>
-  </View>
-);
+// import { styles } from "./styles";
+// style={styles.loader}
 
-export default Schedule;
+// return loading ? (
+//   <View>
+//     <ActivityIndicator />
+//   </View>
+// ) : (
+
+export const Schedule = ({ data }) => {
+  return <EventList data={data} />;
+};

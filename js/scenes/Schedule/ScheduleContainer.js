@@ -1,15 +1,16 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-import { View, Text, AppRegistry, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { connect } from "react-redux";
 
 import Schedule from "./Schedule";
+import { fetchSession } from "../../redux/modules/session";
 
 // create a component
 class ScheduleContainer extends Component {
   constructor() {
     super();
-    this.state = {};
   }
 
   static route = {
@@ -18,10 +19,20 @@ class ScheduleContainer extends Component {
     }
   };
 
+  componentDidMount() {
+    this.props.dispatch(fetchSession());
+  }
+
   render() {
-    return <Schedule />;
+    return <Schedule data={this.props.data} loading={this.props.isLoading} />;
+    // console.log(this.props.data);
   }
 }
 
-AppRegistry.registerComponent("schedule", () => App);
-export default ScheduleContainer;
+const mapStateToProps = state => ({
+  isLoading: state.session.isLoading,
+  data: state.session.sessionData,
+  error: state.session.error
+});
+
+export default connect(mapStateToProps)(ScheduleContainer);
