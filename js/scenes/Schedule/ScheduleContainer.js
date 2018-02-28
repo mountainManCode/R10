@@ -9,9 +9,9 @@ import { fetchSession } from "../../redux/modules/session";
 
 // create a component
 class ScheduleContainer extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   static route = {
     navigationBar: {

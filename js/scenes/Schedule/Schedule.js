@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { View, Text, ActivityIndicator } from "react-native";
 
 import { EventList } from "../../components/EventList";
@@ -13,6 +13,11 @@ import { EventList } from "../../components/EventList";
 //   </View>
 // ) : (
 
-export const Schedule = ({ data }) => {
-  return <EventList data={data} />;
+const Schedule = ({ data, loading }) => {
+  return !loading ? <EventList data={data} /> : <Text>loading...</Text>;
 };
+
+// const Schedule = ({ data, loading }) => {
+//   return !loading ? EventList(data) : <Text>loading...</Text>;
+// };
+export default Schedule;
