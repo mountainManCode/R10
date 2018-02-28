@@ -13,7 +13,8 @@ class SessionContainer extends Component {
   }
 
   render() {
-    return <Session />;
+    // console.log(this.props.route.params.sessionData);
+    return <Session data={this.props.route.params.sessionData} />;
   }
 }
 

@@ -24,7 +24,7 @@ export const EventList = ({ data }) => {
       <SectionList
         renderItem={({ item }) => (
           <View>
-            <TouchableOpacity onPress={() => goToSession("schedule", { data })}>
+            <TouchableOpacity onPress={() => goToSession("schedule", { item })}>
               <Text>{item.title}</Text>
               <Text>{item.location}</Text>
             </TouchableOpacity>
