@@ -6,8 +6,9 @@ import { View, Text, ActivityIndicator, ScrollView, Image } from "react-native";
 import { styles } from "./styles";
 
 // create a component
-const About = ({ data }) => {
-  return data.length === 0 ? (
+const About = ({ data, loading }) => {
+  // console.log(data);
+  return loading ? (
     <View style={styles.loader}>
       <ActivityIndicator />
     </View>
