@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Text, Image } from "react-native";
+import { Text } from "react-native";
 
 import {
   StackNavigation,
@@ -9,12 +9,11 @@ import {
 } from "@expo/ex-navigation";
 
 import Icon from "react-native-vector-icons/Ionicons";
-// const myIcon = (<Icon name="ios-calendar" size={30} color="#900" /> <Icon name="ios-heart" size={30} color="#900" />);
 
 import Router from "./routes";
 
 import { colors, typography } from "../config/styles";
-const { black, mediumGrey, red, purple, white, offWhite } = colors;
+const { black, mediumGrey, white } = colors;
 
 class NavigationLayout extends Component {
   static route = {
@@ -30,7 +29,7 @@ class NavigationLayout extends Component {
       <TabNavigation
         id="main"
         navigatorUID="main"
-        initialTab="about"
+        initialTab="schedule"
         tabBarColor={black}
       >
         <TabItem
@@ -98,7 +97,3 @@ class NavigationLayout extends Component {
 }
 
 export default NavigationLayout;
-// actions - 3
-// Error
-//data
-// losading

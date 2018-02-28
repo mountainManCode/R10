@@ -17,6 +17,7 @@ export const formatSessionData = sessions => {
     .sort((a, b) => a.title - b.title);
 };
 
+// Helper to format Unix Dates
 export const formatUnixDate = date => {
   const newDate = new Date(date * 1000);
   const hours = newDate.getHours();

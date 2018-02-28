@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { View, Text } from "react-native";
 
 import { styles } from "./styles";
+import { EventList } from "../../components/EventList";
 
 // create a component
 const Session = () => (

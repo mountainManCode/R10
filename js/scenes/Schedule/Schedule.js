@@ -14,7 +14,7 @@ import { EventList } from "../../components/EventList";
 // ) : (
 
 const Schedule = ({ data, loading }) => {
-  return !loading ? <EventList data={data} /> : <Text>loading...</Text>;
+  return !loading ? <EventList data={data} /> : <ActivityIndicator />;
 };
 
 // const Schedule = ({ data, loading }) => {
