@@ -1,4 +1,4 @@
-import { formatSessionData } from "./helpers";
+import { formatSessionData } from "../../config/helpers";
 
 // ACTIONS
 
