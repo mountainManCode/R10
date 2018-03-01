@@ -6,8 +6,11 @@ import {
   SectionList,
   ListItem,
   Header,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+
 import { formatUnixDate } from "../config/helpers";
 import { goToSession } from "../config/navigationHelpers";
 // import { styles } from "./styles";
@@ -27,6 +30,12 @@ export const EventList = ({ data }) => {
             <TouchableOpacity onPress={() => goToSession("schedule", { item })}>
               <Text>{item.title}</Text>
               <Text>{item.location}</Text>
+              {Platform.OS === "android" && (
+                <Icon style={{ color: "red" }} size={24} name={"md-heart"} />
+              )}
+              {Platform.OS === "ios" && (
+                <Icon style={{ color: "red" }} size={24} name={"ios-heart"} />
+              )}
             </TouchableOpacity>
           </View>
         )}
