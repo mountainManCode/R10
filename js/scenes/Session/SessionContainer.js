@@ -25,8 +25,8 @@ class SessionContainer extends Component {
     console.log(this.props.route.params.data);
     return (
       <Session
-        dataSession={this.props.route.params.sessionData}
-        dataSpeaker={this.props.data}
+        session={this.props.route.params.sessionData}
+        speaker={this.props.speakerData}
       />
     );
   }
@@ -34,7 +34,7 @@ class SessionContainer extends Component {
 
 const mapStateToProps = state => ({
   isLoading: state.speaker.isLoading,
-  data: state.speaker.speaker,
+  speakerData: state.speaker.speakerData,
   error: state.speaker.error
 });
 

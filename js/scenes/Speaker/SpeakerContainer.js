@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
 // import { View, Text, StyleSheet } from 'react-native';
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 // import fetchSpeaker from "../../redux/modules/speaker";
 
 import Speaker from "./Speaker";
@@ -23,17 +23,17 @@ class SpeakerContainer extends Component {
 
   render() {
     console.log(this.props.route.params.speakerData);
-    return <Speaker />;
+    return <Speaker speaker={this.props.speakerData} />;
   }
 }
 // return <Speaker dataSpeaker={this.props.route.params.speakerData} />;
 
-// const mapStateToProps = state => ({
-//   isLoading: state.speaker.isLoading,
-//   data: state.speaker.sessionData,
-//   error: state.speaker.error
-// });
+const mapStateToProps = state => ({
+  isLoading: state.speaker.isLoading,
+  speakerData: state.speaker.speakerData,
+  error: state.speaker.error
+});
 
 //make this component available to the app
-// export default connect(mapStateToProps)(SpeakerContainer);
-export default SpeakerContainer;
+export default connect(mapStateToProps)(SpeakerContainer);
+// export default SpeakerContainer;
