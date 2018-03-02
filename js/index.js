@@ -27,7 +27,10 @@ export default class App extends Component {
     return (
       <Provider store={Store}>
         <NavigationProvider context={navigationContext}>
-          <StackNavigation initialRoute={Router.getRoute("layout")} />
+          <StackNavigation
+            initialRoute={Router.getRoute("layout")}
+            navigatorUID="root"
+          />
         </NavigationProvider>
       </Provider>
     );

@@ -1,32 +1,43 @@
-//import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
 // import { View, Text, StyleSheet } from 'react-native';
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
+import { fetchSpeaker } from "../../redux/modules/speaker";
 import Session from "./Session";
 
-// componentDidMount() {
-//   this.props.dispatch(fetchSpeaker(this.props.route.params.speakerData))
-// };
 class SessionContainer extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  // constructor() {
+  //   super();
+  //   this.state = {};
+  // }
+
+  componentDidMount() {
+    this.props.dispatch(
+      fetchSpeaker(this.props.route.params.sessionData.speaker)
+    );
   }
-  // return <Session dataSession={this.props.route.params.sessionData} dataSpeaker={this.props.speakerData} />;
+  // this.props.route.params.speakerData
+  // return <Session dataSession={this.props.route.params.sessionData} />;
 
   render() {
-    // console.log(this.props.route.params.sessionData);
-    return <Session />;
+    // console.log(this.props.route.params.sessionData.speaker);
+    console.log(this.props.data);
+    console.log(this.props.route.params.data);
+    return (
+      <Session
+        dataSession={this.props.route.params.sessionData}
+        dataSpeaker={this.props.data}
+      />
+    );
   }
 }
 
-// const mapStateToProps = state => ({
-//   isLoading: state.speaker.isLoading,
-//   data: state.speaker.sessionData,
-//   error: state.speaker.error
-// });
+const mapStateToProps = state => ({
+  isLoading: state.speaker.isLoading,
+  data: state.speaker.speaker,
+  error: state.speaker.error
+});
 
 //make this component available to the app
-// export default connect(mapsStateToProps)(SessionContainer);
-export default SessionContainer;
+export default connect(mapStateToProps)(SessionContainer);
+// export default SessionContainer;

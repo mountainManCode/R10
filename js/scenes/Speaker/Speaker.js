@@ -6,10 +6,11 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 
 // create a component
-const Speaker = () => (
+const Speaker = ({ dataSpeaker }) => (
   <View style={styles.container}>
-    <Text>Speaker SCENE</Text>
+    <Text>Heelllllooooo</Text>
   </View>
 );
+// {/* <Text>{dataSpeaker.speaker}</Text> */}
 
 export default Speaker;

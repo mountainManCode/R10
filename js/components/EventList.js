@@ -22,12 +22,13 @@ import { goToSession } from "../config/navigationHelpers";
 // };
 
 export const EventList = ({ data }) => {
+  // console.log(data);
   return (
     <View>
       <SectionList
         renderItem={({ item }) => (
           <View>
-            <TouchableOpacity onPress={() => goToSession("schedule", { item })}>
+            <TouchableOpacity onPress={() => goToSession("schedule", item)}>
               <Text>{item.title}</Text>
               <Text>{item.location}</Text>
               {Platform.OS === "android" && (

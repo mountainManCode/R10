@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-import { View, Text, StyleSheet } from "react-native";
+// import { View } from "react-native";
 import { connect } from "react-redux";
 
 import Schedule from "./Schedule";

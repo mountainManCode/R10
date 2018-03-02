@@ -30,6 +30,7 @@ class NavigationLayout extends Component {
         id="main"
         initialItem="schedule"
         drawerWidth={300}
+        navigatorUID="main"
         renderHeader={this._renderHeader}
       >
         <DrawerNavigationItem
@@ -39,6 +40,7 @@ class NavigationLayout extends Component {
         >
           <StackNavigation
             id="schedule"
+            navigatorUID="schedule"
             initialRoute={Router.getRoute("schedule")}
           />
         </DrawerNavigationItem>
@@ -48,7 +50,11 @@ class NavigationLayout extends Component {
           renderTitle={isSelected => this._renderTitle("Faves", isSelected)}
           renderIcon={isSelected => this.renderIcon(isSelected, "md-heart")}
         >
-          <StackNavigation id="faves" initialRoute={Router.getRoute("faves")} />
+          <StackNavigation
+            id="faves"
+            navigatorUID="faves"
+            initialRoute={Router.getRoute("faves")}
+          />
         </DrawerNavigationItem>
         <DrawerNavigationItem
           id="about"
@@ -56,7 +62,11 @@ class NavigationLayout extends Component {
           renderIcon={isSelected =>
             this.renderIcon(isSelected, "md-information-circle")}
         >
-          <StackNavigation id="about" initialRoute={Router.getRoute("about")} />
+          <StackNavigation
+            id="about"
+            navigatorUID="about"
+            initialRoute={Router.getRoute("about")}
+          />
         </DrawerNavigationItem>
       </DrawerNavigation>
     );

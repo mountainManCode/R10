@@ -8,16 +8,16 @@ import { formatUnixDate } from "../../config/helpers";
 import { goToSpeaker } from "../../config/navigationHelpers";
 
 // create a component
-const Session = ({ data }) => {
-  console.log(data);
+const Session = ({ dataSession, dataSpeaker }) => {
+  console.log({ dataSpeaker });
   return (
     <View>
-      <Text>{data.item.location}</Text>
-      <Text>{data.item.title}</Text>
-      <Text>{formatUnixDate(data.item.start_time)}</Text>
-      <Text>{data.item.description}</Text>
-      <TouchableOpacity onPress={() => goToSpeaker("speaker", { speakerData })}>
-        <Text>{data.item.speaker}</Text>
+      <Text>{dataSession.location}</Text>
+      <Text>{dataSession.title}</Text>
+      <Text>{formatUnixDate(dataSession.start_time)}</Text>
+      <Text>{dataSession.description}</Text>
+      <TouchableOpacity onPress={() => goToSpeaker("session", dataSpeaker)}>
+        <Text>{dataSession.speaker}</Text>
       </TouchableOpacity>
     </View>
   );

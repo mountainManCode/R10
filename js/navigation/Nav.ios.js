@@ -28,15 +28,15 @@ class NavigationLayout extends Component {
     return (
       <TabNavigation
         id="main"
-        navigatorUID="main"
         initialTab="schedule"
         tabBarColor={black}
+        navigatorUID="main"
       >
         <TabItem
           id="schedule"
-          title="Schedule"
           renderTitle={this.renderTitle}
           renderIcon={isSelected => this.renderIcon(isSelected, "ios-calendar")}
+          title="Schedule"
         >
           <StackNavigation
             id="schedule"
