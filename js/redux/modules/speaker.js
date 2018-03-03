@@ -15,12 +15,12 @@ const getSpeaker = speakerData => ({
 });
 const getSpeakerError = error => ({ Type: GET_SPEAKER_ERROR, payload: error });
 
-const SPEAKER_URL = "https://r10app-95fea.firebaseio.com/speakers.json";
+const SESSION_URL = "https://r10app-95fea.firebaseio.com/speakers.json";
 
 // ASYNC ACTION CREATOR
 export const fetchSpeaker = speakerId => dispatch => {
   dispatch(getSpeakerLoading());
-  fetch(`${SPEAKER_URL}?orderBy="speaker_id"&equalTo="${speakerId}"`)
+  fetch(`${SESSION_URL}`)
     .then(res => res.json())
     .then(speakerData => dispatch(getSpeaker(formatDataObject(speakerData))))
     .catch(error => dispatch(getSpeakerError(error)));

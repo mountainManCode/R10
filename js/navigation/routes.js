@@ -2,9 +2,9 @@ import { createRouter } from "@expo/ex-navigation";
 
 import NavigationLayout from "./Nav";
 import FavesContainer from "../scenes/Faves/";
-import AboutContainer from "../scenes/About";
-import ScheduleContainer from "../scenes/Schedule";
-import SessionContainer from "../scenes/Session";
+import AboutContainer from "../scenes/About/";
+import ScheduleContainer from "../scenes/Schedule/";
+import SessionContainer from "../scenes/Session/";
 import SpeakerContainer from "../scenes/Speaker/";
 
 const Router = createRouter(() => ({

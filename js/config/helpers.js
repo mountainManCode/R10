@@ -4,6 +4,13 @@ export const formatDataObject = data => {
   return dataObject[0];
 };
 
+export const filterFaves = sessionId => {
+  const favesData = Object.values(sessionId).filter(
+    session => session.session_id === sessionId
+  );
+  return favesData;
+};
+
 // Helper to format Firebase data into section list data
 export const formatSessionData = sessions => {
   return sessions

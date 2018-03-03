@@ -31,13 +31,13 @@ export const EventList = ({ data }) => {
             <TouchableOpacity onPress={() => goToSession("schedule", item)}>
               <Text>{item.title}</Text>
               <Text>{item.location}</Text>
-              {Platform.OS === "android" && (
-                <Icon style={{ color: "red" }} size={24} name={"md-heart"} />
-              )}
-              {Platform.OS === "ios" && (
-                <Icon style={{ color: "red" }} size={24} name={"ios-heart"} />
-              )}
             </TouchableOpacity>
+            {Platform.OS === "android" && (
+              <Icon style={{ color: "red" }} size={24} name={"md-heart"} />
+            )}
+            {Platform.OS === "ios" && (
+              <Icon style={{ color: "red" }} size={24} name={"ios-heart"} />
+            )}
           </View>
         )}
         keyExtractor={(item, index) => index}
