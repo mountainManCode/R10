@@ -21,8 +21,8 @@ class SessionContainer extends Component {
 
   render() {
     // console.log(this.props.route.params.sessionData.speaker);
-    // console.log(this.props.data);
-    // console.log(this.props.route.params.data);
+    console.log(this.props.speakerData);
+    console.log(this.props.route.params.sessionData);
     return (
       <Session
         session={this.props.route.params.sessionData}

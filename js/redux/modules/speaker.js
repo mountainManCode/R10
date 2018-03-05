@@ -20,7 +20,7 @@ const SESSION_URL = "https://r10app-95fea.firebaseio.com/speakers.json";
 // ASYNC ACTION CREATOR
 export const fetchSpeaker = speakerId => dispatch => {
   dispatch(getSpeakerLoading());
-  fetch(`${SESSION_URL}`)
+  fetch(`${SESSION_URL}?orderBy="speaker_id"&equalTo="${speakerId}"`)
     .then(res => res.json())
     .then(speakerData => dispatch(getSpeaker(formatDataObject(speakerData))))
     .catch(error => dispatch(getSpeakerError(error)));
