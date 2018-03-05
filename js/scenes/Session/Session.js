@@ -1,20 +1,19 @@
 //import liraries
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text, TouchableOpacity, Platform } from "react-native";
+import { View, Text, TouchableOpacity, Platform, Image } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
-// import { styles } from "./styles";
 // import { EventList } from "../../components/EventList";
 import { formatUnixDate } from "../../config/helpers";
 import { goToSpeaker } from "../../config/navigationHelpers";
 import { createFave } from "../../config/models";
+import { styles } from "./styles";
 
-// create a component
 const Session = ({ session, speaker }) => {
   return (
-    <View>
-      <Text>{session.location}</Text>
+    <View style={styles.container}>
+      <Text style={styles.subText}>{session.location}</Text>
       <TouchableOpacity
         onPress={() => {
           createFave(session.session_id);
@@ -27,12 +26,19 @@ const Session = ({ session, speaker }) => {
           <Icon style={{ color: "red" }} size={24} name={"ios-heart"} />
         )}
       </TouchableOpacity>
-      <Text>{session.title}</Text>
-      <Text>{formatUnixDate(session.start_time)}</Text>
-      <Text>{session.description}</Text>
-      <TouchableOpacity onPress={() => goToSpeaker("session", speaker)}>
-        <Text>{speaker.name}</Text>
-      </TouchableOpacity>
+      <Text style={styles.header}>{session.title}</Text>
+      <Text style={styles.time}>{formatUnixDate(session.start_time)}</Text>
+      <Text style={styles.text}>{session.description}</Text>
+      <Text style={styles.subText}>Presented by: </Text>
+      <View style={styles.speakerContainer}>
+        <TouchableOpacity onPress={() => goToSpeaker("session", speaker)}>
+          <Image
+            style={styles.speakerImage}
+            source={{ uri: `${speaker.image}` }}
+          />
+          <Text style={styles.speaker}>{speaker.name}</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

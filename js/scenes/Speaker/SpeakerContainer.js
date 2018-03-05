@@ -14,6 +14,12 @@ class SpeakerContainer extends Component {
     this.state = {};
   }
 
+  static route = {
+    navigationBar: {
+      title: "About the Speaker"
+    }
+  };
+
   // componentDidMount() {
   //   this.props.dispatch(fetchSpeaker());
   // }
