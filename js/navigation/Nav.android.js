@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Text, View, StyleSheet } from "react-native";
+import { Text, StyleSheet, Dimensions } from "react-native";
 
 import {
   StackNavigation,
@@ -8,12 +8,36 @@ import {
   DrawerNavigationItem
 } from "@expo/ex-navigation";
 
+import LinearGradient from "react-native-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import Router from "./routes";
 
 import { colors, typography } from "../config/styles";
-const { black, mediumGrey, white } = colors;
+const { mediumGrey, white, red, purple } = colors;
+const { windowWidth } = Dimensions.get("window"); // https://facebook.github.io/react-native/docs/dimensions.html
+
+const defaultRouteConfig = {
+  //https://github.com/expo/ex-navigation
+  navigationBar: {
+    tintColor: white, // colour of scene title and hamburger menu
+    titleStyle: { fontFamily: typography.fontRegular },
+    renderBackground: () => renderHeaderBackground()
+  }
+};
+
+const renderHeaderBackground = () => {
+  return (
+    <LinearGradient
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      locations={[0, 1]}
+      colors={[red, purple]}
+      width={windowWidth}
+      height={65}
+    />
+  );
+};
 
 class NavigationLayout extends Component {
   static route = {
@@ -31,7 +55,6 @@ class NavigationLayout extends Component {
         initialItem="schedule"
         drawerWidth={300}
         navigatorUID="main"
-        renderHeader={this._renderHeader}
       >
         <DrawerNavigationItem
           id="schedule"
@@ -42,6 +65,7 @@ class NavigationLayout extends Component {
             id="schedule"
             navigatorUID="schedule"
             initialRoute={Router.getRoute("schedule")}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
 
@@ -54,6 +78,7 @@ class NavigationLayout extends Component {
             id="faves"
             navigatorUID="faves"
             initialRoute={Router.getRoute("faves")}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
         <DrawerNavigationItem
@@ -66,6 +91,7 @@ class NavigationLayout extends Component {
             id="about"
             navigatorUID="about"
             initialRoute={Router.getRoute("about")}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
       </DrawerNavigation>
@@ -78,10 +104,6 @@ class NavigationLayout extends Component {
       <Icon name={iconName} size={25} color={isSelected ? white : mediumGrey} />
     );
   }
-
-  _renderHeader = () => {
-    return <View style={styles.header} />;
-  };
 
   _renderTitle(text: string, isSelected: boolean) {
     return (

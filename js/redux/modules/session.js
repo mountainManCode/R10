@@ -22,7 +22,7 @@ export const fetchSession = () => dispatch => {
   dispatch(getSessionLoading());
   fetch(SESSION_URL)
     .then(res => res.json())
-    .then(data => dispatch(getSession(formatSessionData(data))))
+    .then(sessionData => dispatch(getSession(formatSessionData(sessionData))))
     .catch(error => dispatch(getSessionError(error)));
 };
 
@@ -44,7 +44,7 @@ export default (
         ...state,
         sessionData: action.payload,
         isLoading: false,
-        error: action.payload // if previously there was an error, clear the error
+        error: "" // if previously there was an error, clear the error
       };
     }
     case GET_SESSION_ERROR: {

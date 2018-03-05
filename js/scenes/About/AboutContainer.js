@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types';
-// import { AppRegistry } from "react-native";
 import { connect } from "react-redux";
 
 import About from "./About";
@@ -42,5 +41,4 @@ const mapStateToProps = state => ({
 });
 
 // Makes this component available to the app
-// AppRegistry.registerComponent("about", () => App);
 export default connect(mapStateToProps)(AboutContainer);

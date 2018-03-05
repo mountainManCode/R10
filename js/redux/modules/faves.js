@@ -19,15 +19,15 @@ const getFavesError = error => ({ Type: GET_FAVES_ERROR, payload: error });
 export const fetchFaves = () => dispatch => {
   const data = queryFaves();
   const faves = {};
-  data.map((item, key) => (faves[item.id] = "exists"));
+
+  data.map((item, key) => (faves[item.id] = "faves_id"));
   dispatch(getFaves(faves));
 };
-
 // REDUCER
 export default (
   state = {
     isLoading: false,
-    faves: [],
+    faves: {},
     error: ""
   },
   action
@@ -41,7 +41,7 @@ export default (
         ...state,
         faves: action.payload,
         isLoading: false,
-        error: action.payload // if previously there was an error, clear the error
+        error: "" // if previously there was an error, clear the error
       };
     }
     case GET_FAVES_ERROR: {

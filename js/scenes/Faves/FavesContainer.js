@@ -7,9 +7,8 @@ import { connect } from "react-redux";
 import Faves from "./Faves";
 
 import { fetchFaves } from "../../redux/modules/faves";
-// import { queryFaves } from "../../config/models";
+// import { fetchSession } from "../../redux/modules/session";
 
-// create a component
 class FavesContainer extends Component {
   constructor() {
     super();
@@ -18,6 +17,7 @@ class FavesContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchFaves());
+    // this.props.dispatch(fetchSession());
   }
 
   static route = {
@@ -27,15 +27,35 @@ class FavesContainer extends Component {
   };
 
   render() {
-    console.log(this.props.faves);
+    // const favesData = Object.values(this.props.faves);
+    // let sessionFaves = this.props.data.filter(
+    //   session => session.session_id.some(faves => favesData.includes(faves))
+    //   // favesData.includes(session.data.session_id)
+    //   // session => session.session_id === favesData.faves_id
+    // );
+
+    // const sessionFaves = this.props.sessionData.filter(
+    //   session => this.props.faves[session.session_id] === "faves_id"
+    // );
+
+    // const faves = this.props.faves;
+    // // const sessions = this.props.data;
+    // console.log(sessionFaves);
+
+    console.log(this.props.sessionData);
+    // console.log(this.props.data.session_id);
+
     return <Faves />;
   }
 }
+// faves={this.props.faves} sessions={this.props.data}
 
 const mapStateToProps = state => ({
-  isLoading: state.faves.isLoading,
   faves: state.faves.faves,
-  error: state.faves.error
+  favesError: state.faves.error,
+  sessionIsLoading: state.session.isLoading,
+  sessionData: state.session.sessionData,
+  sessionError: state.session.error
 });
 
 //make this component available to the app
