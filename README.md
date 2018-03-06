@@ -1,4 +1,4 @@
-# Boomtown Starter
+# R10
 
 An application to to find the details of the upcoming Developer Conference called R10. 
 
