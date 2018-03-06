@@ -4,11 +4,20 @@ export const formatDataObject = data => {
   return dataObject[0];
 };
 
-export const filterFaves = sessionId => {
-  const favesData = Object.values(sessionId).filter(
-    session => session.session_id === sessionId
-  );
-  return favesData;
+// Filter the users favorite sessions
+export const favFilter = session => {
+  const keys = Object.keys(this.props.faves).map(key => {
+    return this.props.faves[key].id;
+  });
+  return session.reduce((acc, item) => {
+    if (keys.includes(item.session_id)) {
+      item.isFave = true;
+      acc.push(item);
+    } else {
+      item.isFave = false;
+    }
+    return acc;
+  }, []);
 };
 
 // Helper to format Firebase data into section list data

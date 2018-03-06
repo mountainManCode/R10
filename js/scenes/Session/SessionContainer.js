@@ -8,10 +8,14 @@ import { fetchSpeaker } from "../../redux/modules/speaker";
 import Session from "./Session";
 
 class SessionContainer extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {};
-  // }
+  // const backButtonConfig = {
+  //   title: "Back",
+  //   handler: () => this.props.navigator.pop()
+  // };
+
+  // const titleConfig = {
+  //   title: "Session"
+  // };
 
   componentDidMount() {
     this.props.dispatch(
@@ -20,18 +24,8 @@ class SessionContainer extends Component {
   }
 
   render() {
-    const backButtonConfig = {
-      title: "Back",
-      handler: () => this.props.navigator.pop()
-    };
-
-    const titleConfig = {
-      title: "Session"
-    };
     return (
       <View>
-        <NavigationBar title={titleConfig} leftButton={backButtonConfig} />
-
         <Session
           session={this.props.route.params.sessionData}
           speaker={this.props.speakerData}

@@ -15,30 +15,23 @@ import { formatUnixDate } from "../config/helpers";
 import { goToSession } from "../config/navigationHelpers";
 // import { styles } from "./styles";
 
-export const EventList = ({ data }) => {
+export const FavesEventList = ({ data }) => {
   // console.log(data);
   return (
     <View>
       <SectionList
         renderItem={({ item }) => (
           <View>
-            <TouchableOpacity onPress={() => goToSession("schedule", item)}>
+            <TouchableOpacity onPress={() => goToSession("faves", item)}>
               <Text>{item.title}</Text>
               <Text>{item.location}</Text>
             </TouchableOpacity>
-
-            {Platform.OS === "android" &&
-              (item.isFave ? (
-                <Icon style={{ color: "red" }} size={24} name={"md-heart"} />
-              ) : (
-                <View />
-              ))}
-            {Platform.OS === "ios" &&
-              (item.isFave ? (
-                <Icon style={{ color: "red" }} size={24} name={"ios-heart"} />
-              ) : (
-                <View />
-              ))}
+            {Platform.OS === "android" && (
+              <Icon style={{ color: "red" }} size={24} name={"md-heart"} />
+            )}
+            {Platform.OS === "ios" && (
+              <Icon style={{ color: "red" }} size={24} name={"ios-heart"} />
+            )}
           </View>
         )}
         keyExtractor={(item, index) => index}

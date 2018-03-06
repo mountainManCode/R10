@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { View, Text } from "react-native";
 
-import { EventList } from "../../components/EventList";
+import { FavesEventList } from "../../components/FavesEventList";
 
 import { styles } from "./styles";
 
@@ -11,8 +11,7 @@ import { styles } from "./styles";
 const Faves = ({ data }) => {
   return (
     <View style={styles.container}>
-      <Text>Hello</Text>
-      <EventList data={data} />
+      <FavesEventList data={data} />
     </View>
   );
 };

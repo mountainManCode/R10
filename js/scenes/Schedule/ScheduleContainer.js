@@ -21,6 +21,20 @@ class ScheduleContainer extends Component {
     }
   };
 
+  favFilter = session => {
+    const keys = Object.keys(this.props.faves).map(key => {
+      return this.props.faves[key].id;
+    });
+    return session.reduce((acc, item) => {
+      if (keys.includes(item.session_id)) {
+        item.isFave = true;
+      } else {
+        item.isFave = false;
+      }
+      return acc;
+    }, []);
+  };
+
   componentDidMount() {
     this.props.dispatch(fetchSession());
     // this.props.dispatch(fetchFaves());
@@ -29,7 +43,7 @@ class ScheduleContainer extends Component {
   render() {
     return (
       <Schedule
-        data={formatSessionData(this.props.data)}
+        data={formatSessionData(this.favFilter(this.props.data))}
         loading={this.props.isLoading}
       />
     );
@@ -39,8 +53,8 @@ class ScheduleContainer extends Component {
 const mapStateToProps = state => ({
   isLoading: state.session.isLoading,
   data: state.session.sessionData,
-  error: state.session.error
-  // faves: state.faves.faves,
+  error: state.session.error,
+  faves: state.faves.faves
   // favesError: state.faves.error
 });
 
