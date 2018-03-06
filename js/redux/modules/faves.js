@@ -17,12 +17,12 @@ const getFavesError = error => ({ Type: GET_FAVES_ERROR, payload: error });
 
 // ASYNC ACTION CREATOR
 export const fetchFaves = () => dispatch => {
-  const data = queryFaves();
-  const faves = {};
-
-  data.map((item, key) => (faves[item.id] = "faves_id"));
+  dispatch(getFavesLoading());
+  const faves = queryFaves();
+  console.log(faves);
   dispatch(getFaves(faves));
 };
+
 // REDUCER
 export default (
   state = {

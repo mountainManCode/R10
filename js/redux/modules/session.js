@@ -1,4 +1,4 @@
-import { formatSessionData } from "../../config/helpers";
+// import { formatSessionData } from "../../config/helpers";
 
 // ACTIONS
 
@@ -22,7 +22,7 @@ export const fetchSession = () => dispatch => {
   dispatch(getSessionLoading());
   fetch(SESSION_URL)
     .then(res => res.json())
-    .then(sessionData => dispatch(getSession(formatSessionData(sessionData))))
+    .then(sessionData => dispatch(getSession(sessionData)))
     .catch(error => dispatch(getSessionError(error)));
 };
 

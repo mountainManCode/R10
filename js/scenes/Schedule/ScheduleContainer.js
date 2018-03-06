@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 
 import Schedule from "./Schedule";
 import { fetchSession } from "../../redux/modules/session";
-import { fetchFaves } from "../../redux/modules/faves";
+// import { fetchFaves } from "../../redux/modules/faves";
+import { formatSessionData } from "../../config/helpers";
 
 // create a component
 class ScheduleContainer extends Component {
@@ -26,7 +27,12 @@ class ScheduleContainer extends Component {
   }
 
   render() {
-    return <Schedule data={this.props.data} loading={this.props.isLoading} />;
+    return (
+      <Schedule
+        data={formatSessionData(this.props.data)}
+        loading={this.props.isLoading}
+      />
+    );
   }
 }
 

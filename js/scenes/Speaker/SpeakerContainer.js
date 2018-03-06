@@ -3,6 +3,8 @@ import React, { Component } from "react";
 // import PropTypes from 'prop-types';
 // import { View, Text, StyleSheet } from 'react-native';
 import { connect } from "react-redux";
+import NavigationBar from "react-native-navbar";
+
 // import fetchSpeaker from "../../redux/modules/speaker";
 
 import Speaker from "./Speaker";
@@ -29,6 +31,7 @@ class SpeakerContainer extends Component {
 
   render() {
     console.log(this.props.route.params.speakerData);
+
     return <Speaker speaker={this.props.speakerData} />;
   }
 }

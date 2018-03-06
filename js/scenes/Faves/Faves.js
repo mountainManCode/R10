@@ -8,21 +8,11 @@ import { EventList } from "../../components/EventList";
 import { styles } from "./styles";
 
 // create a component
-const Faves = (faves, sessions) => {
-  // let sessionFaves = sessions.filter(
-  //   session => favesData.includes(session.session_id)
-  //   // session.data.session_id === favesData
-  // );
-  // const favesSesssions = sessions.filter(
-  //   session => faves[session.session_id] === "true"
-  // );
-
-  // console.log(sessons);
-  // console.log(faveSessions);
-
+const Faves = ({ data }) => {
   return (
     <View style={styles.container}>
       <Text>Hello</Text>
+      <EventList data={data} />
     </View>
   );
 };
