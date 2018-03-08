@@ -16,7 +16,6 @@ import { goToSession } from "../config/navigationHelpers";
 // import { styles } from "./styles";
 
 export const EventList = ({ data }) => {
-  // console.log(data);
   return (
     <View>
       <SectionList

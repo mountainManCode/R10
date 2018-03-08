@@ -31,6 +31,7 @@ class ScheduleContainer extends Component {
       } else {
         item.isFave = false;
       }
+      acc.push(item);
       return acc;
     }, []);
   };

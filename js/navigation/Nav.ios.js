@@ -51,7 +51,7 @@ class NavigationLayout extends Component {
     return (
       <TabNavigation
         id="main"
-        initialTab="faves"
+        initialTab="about"
         tabBarColor={black}
         navigatorUID="main"
       >
