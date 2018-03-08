@@ -1,37 +1,28 @@
 //import libraries
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {
-  View,
-  Text,
-  ActivityIndicator,
-  ScrollView,
-  Image,
-  TouchableHighlight,
-  LayoutAnimation
-} from "react-native";
+import { View, Text, ActivityIndicator, ScrollView, Image } from "react-native";
 
 import { styles } from "./styles";
-import CodeOfConduct from "../../components/CodeOfConduct";
+import CodeOfConduct from "./CodeOfConduct";
 // import { data, loading } from "./AboutContainer";
 
 class About extends Component {
-  constructor() {
-    super();
-    this.state = {
-      show: false
-    };
-  }
-
-  onPress = () => {
-    // LayoutAnimation.easeInEaseOut();
-    this.setState({ show: true });
-  };
-  // _startAnimation() {
-  //   Animated.parallel([
-  //     Animated.
-  //   ])
+  // constructor() {
+  //   super();
+  //   if (Platform.OS === "android") {
+  //     UIManager.setLayoutAnimationEnabledExperimental &&
+  //       UIManager.setLayoutAnimationEnabledExperimental(true);
+  //   }
+  //   this.state = {
+  //     show: false
+  //   };
   // }
+
+  // onPress = () => {
+  //   // LayoutAnimation.easeInEaseOut();
+  //   this.setState({ show: !this.state.show });
+  // };
 
   render() {
     // console.log(this.props.data);
@@ -56,18 +47,11 @@ class About extends Component {
               Vacouver, B.C.
             </Text>
             <Text style={styles.header}>Code of Conduct</Text>
-
-            {this.props.data.map((item, index) => (
-              <View key={index} style={styles.text}>
-                <TouchableHighlight onPress={this.onPress}>
-                  <Text style={styles.title}>{item.title}</Text>
-                </TouchableHighlight>
-
-                <View>
-                  <CodeOfConduct item={item} show={this.state.show} />
-                </View>
-              </View>
-            ))}
+            <View>
+              {this.props.data.map((item, index) => (
+                <CodeOfConduct item={item} key={index} />
+              ))}
+            </View>
           </View>
         </ScrollView>
       </View>
