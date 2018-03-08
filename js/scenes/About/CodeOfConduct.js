@@ -5,15 +5,14 @@ import {
   View,
   Text,
   Animated,
-  LayoutAnimation,
   TouchableHighlight,
   Platform,
   UIManager
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import { styles } from "./styles";
 
-// const CodeOfConduct = ({ item, show, index }) => {
 class CodeOfConduct extends Component {
   constructor() {
     super();
@@ -28,7 +27,6 @@ class CodeOfConduct extends Component {
   }
 
   _onPress = () => {
-    // LayoutAnimation.easeInEaseOut();
     this.setState({ show: !this.state.show });
   };
 
@@ -37,20 +35,40 @@ class CodeOfConduct extends Component {
     return (
       <View key={item.title}>
         <TouchableHighlight onPress={this._onPress}>
-          <Text>{item.title}</Text>
+          <View style={styles.titleContainer}>
+            {Platform.OS === "android" &&
+              (this.state.show ? (
+                <Icon style={{ color: "grey" }} size={20} name={"md-add"} />
+              ) : (
+                <Icon style={{ color: "grey" }} size={20} name={"md-remove"} />
+              ))}
+            {Platform.OS === "ios" &&
+              (item.isFave ? (
+                <Icon
+                  style={{ color: "grey" }}
+                  size={20}
+                  name={"ios-add-outline"}
+                />
+              ) : (
+                <Icon
+                  style={{ color: "grey" }}
+                  size={20}
+                  name={"ios-add-outline"}
+                />
+              ))}
+            <Text style={styles.title}>{item.title}</Text>
+          </View>
         </TouchableHighlight>
+
         {this.state.show && (
-          <Animated.Text style={{ marginRight: 10, marginLeft: 10 }}>
-            {item.description}
-          </Animated.Text>
+          <Animated.Text style={styles.text}>{item.description}</Animated.Text>
         )}
       </View>
     );
   }
 }
-// {this.state.opened ? "- " : "+ "}
-// CodeOfConduct.propTypes = {
-//   show: PropTypes.bool,
-//   text: PropTypes.string
-// };
+
+CodeOfConduct.propTypes = {
+  item: PropTypes.object
+};
 export default CodeOfConduct;

@@ -3,27 +3,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { View, Text, ActivityIndicator, ScrollView, Image } from "react-native";
 
-import { styles } from "./styles";
 import CodeOfConduct from "./CodeOfConduct";
-// import { data, loading } from "./AboutContainer";
+
+import { styles } from "./styles";
 
 class About extends Component {
-  // constructor() {
-  //   super();
-  //   if (Platform.OS === "android") {
-  //     UIManager.setLayoutAnimationEnabledExperimental &&
-  //       UIManager.setLayoutAnimationEnabledExperimental(true);
-  //   }
-  //   this.state = {
-  //     show: false
-  //   };
-  // }
-
-  // onPress = () => {
-  //   // LayoutAnimation.easeInEaseOut();
-  //   this.setState({ show: !this.state.show });
-  // };
-
   render() {
     // console.log(this.props.data);
     return this.props.loading ? (
@@ -58,5 +42,10 @@ class About extends Component {
     );
   }
 }
+
+About.propTypes = {
+  loading: PropTypes.bool,
+  data: PropTypes.array
+};
 
 export default About;

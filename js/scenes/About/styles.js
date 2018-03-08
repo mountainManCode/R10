@@ -28,9 +28,13 @@ export const styles = StyleSheet.create({
   text: {
     marginVertical: 5
   },
+  titleContainer: {
+    flexDirection: "row"
+  },
   title: {
     color: "#9963ea",
     fontWeight: "bold",
-    marginBottom: 10
+    marginBottom: 10,
+    paddingLeft: 7.5
   }
 });
