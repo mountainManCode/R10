@@ -6,45 +6,41 @@ import { connect } from "react-redux";
 
 import Schedule from "./Schedule";
 import { fetchSession } from "../../redux/modules/session";
-// import { fetchFaves } from "../../redux/modules/faves";
+import { fetchFaves } from "../../redux/modules/faves";
 import { formatSessionData } from "../../config/helpers";
 
-// create a component
 class ScheduleContainer extends Component {
-  // constructor() {
-  //   super();
-  // }
-
   static route = {
     navigationBar: {
       title: "Schedule"
     }
   };
 
-  favFilter = session => {
-    const keys = Object.keys(this.props.faves).map(key => {
-      return this.props.faves[key].id;
-    });
-    return session.reduce((acc, item) => {
-      if (keys.includes(item.session_id)) {
-        item.isFave = true;
-      } else {
-        item.isFave = false;
-      }
-      acc.push(item);
-      return acc;
-    }, []);
-  };
+  // favFilter = session => {
+  //   const keys = Object.keys(this.props.faves).map(key => {
+  //     return this.props.faves[key].id;
+  //   });
+  //   return session.reduce((acc, item) => {
+  //     if (keys.includes(item.session_id)) {
+  //       item.isFave = true;
+  //     } else {
+  //       item.isFave = false;
+  //     }
+  //     acc.push(item);
+  //     return acc;
+  //   }, []);
+  // };
 
   componentDidMount() {
     this.props.dispatch(fetchSession());
-    // this.props.dispatch(fetchFaves());
+    this.props.dispatch(fetchFaves());
   }
 
   render() {
     return (
       <Schedule
-        data={formatSessionData(this.favFilter(this.props.data))}
+        data={formatSessionData(this.props.data)}
+        faves={this.props.faves}
         loading={this.props.isLoading}
       />
     );

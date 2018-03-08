@@ -7,8 +7,12 @@ import { EventList } from "../../components/EventList";
 // import { styles } from "./styles";
 // style={styles.loader}
 
-const Schedule = ({ data, loading }) => {
-  return !loading ? <EventList data={data} /> : <ActivityIndicator />;
+const Schedule = ({ data, loading, faves }) => {
+  return !loading ? (
+    <EventList data={data} faves={faves} />
+  ) : (
+    <ActivityIndicator />
+  );
 };
 
 export default Schedule;
