@@ -4,7 +4,7 @@ import { View, Text, ActivityIndicator } from "react-native";
 
 import { EventList } from "../../components/EventList";
 
-// import { styles } from "./styles";
+import { styles } from "../../components/styles";
 // style={styles.loader}
 
 const Schedule = ({ data, loading, faves }) => {

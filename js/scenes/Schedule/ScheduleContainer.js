@@ -16,21 +16,6 @@ class ScheduleContainer extends Component {
     }
   };
 
-  // favFilter = session => {
-  //   const keys = Object.keys(this.props.faves).map(key => {
-  //     return this.props.faves[key].id;
-  //   });
-  //   return session.reduce((acc, item) => {
-  //     if (keys.includes(item.session_id)) {
-  //       item.isFave = true;
-  //     } else {
-  //       item.isFave = false;
-  //     }
-  //     acc.push(item);
-  //     return acc;
-  //   }, []);
-  // };
-
   componentDidMount() {
     this.props.dispatch(fetchSession());
     this.props.dispatch(fetchFaves());

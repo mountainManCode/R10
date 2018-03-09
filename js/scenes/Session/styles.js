@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from "../../config/styles";
+const { black, lightGrey, white, red, purple } = colors;
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -11,27 +14,24 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-
   header: {
     marginVertical: 10,
     fontWeight: "700",
     fontSize: 25
   },
-
   text: {
     marginVertical: 5,
     fontSize: 18
   },
-
   subText: {
     marginVertical: 5,
-    color: "grey",
+    color: lightGrey,
     fontSize: 18
   },
   time: {
     marginVertical: 5,
     fontSize: 18,
-    color: "red"
+    color: red
   },
   title: {
     color: "#9963ea",
@@ -46,11 +46,10 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 18
   },
-
   speakerImage: {
     height: 60,
     width: 60,
     borderRadius: 30,
-    overlayColor: "#fff"
+    overlayColor: white
   }
 });
