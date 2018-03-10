@@ -1,45 +1,43 @@
 //import liraries
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { View, Text, Image, Platform, TouchableOpacity } from "react-native";
-
-// import Icon from "react-native-vector-icons/Ionicons";
-
-import { closeSpeaker } from "../../config/helpers";
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  TouchableHighlight,
+  Linking
+} from "react-native";
 
 import { styles } from "./styles";
 
-// create a component
 const Speaker = ({ speaker }) => {
   return (
-    <View>
+    <ScrollView>
       <View style={styles.container}>
-        <Image
-          style={{ height: 200, width: 200 }}
-          source={{ uri: `${speaker.image}` }}
-        />
-        <Text>{speaker.name}</Text>
-        <Text>{speaker.bio}</Text>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={speaker.image ? { uri: `${speaker.image}` } : null}
+          />
+        </View>
+        <Text style={styles.name}>{speaker.name}</Text>
+        <Text style={styles.description}>{speaker.bio}</Text>
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => Linking.openURL(speaker.url)}
+        >
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Read More On Wikipedia</Text>
+          </View>
+        </TouchableHighlight>
       </View>
-    </View>
+    </ScrollView>
   );
 };
-
-{
-  /* <View>
-<TouchableOpacity
-  onPress={() => {
-    closeSpeaker();
-  }}
->
-  {Platform.OS === "android" && (
-    <Icon style={{ color: "black" }} size={24} name={"md-close"} />
-  )}
-  {Platform.OS === "ios" && (
-    <Icon style={{ color: "black" }} size={24} name={"ios-close"} />
-  )}
-</TouchableOpacity>
-</View> */
-}
+Speaker.propTypes = {
+  speaker: PropTypes.array
+};
 
 export default Speaker;

@@ -1,7 +1,9 @@
+// Styling for Components {FavesEventList & EventList}
+
 import { StyleSheet } from "react-native";
 
 import { colors } from "../config/styles";
-const { black, lightGrey, mediumGrey, red, purple } = colors;
+const { lightGrey, mediumGrey } = colors;
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,8 +12,7 @@ export const styles = StyleSheet.create({
   timeContainer: {
     paddingVertical: 5,
     paddingHorizontal: 10,
-    backgroundColor: lightGrey,
-    fontWeight: "bold"
+    backgroundColor: lightGrey
   },
   subText: {
     color: mediumGrey,

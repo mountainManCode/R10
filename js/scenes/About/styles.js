@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from "../../config/styles";
+const { black, lightGrey } = colors;
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -18,7 +21,7 @@ export const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 15,
     borderBottomWidth: 1,
-    borderColor: "#e6e6e6"
+    borderColor: lightGrey
   },
   header: {
     marginVertical: 10,
