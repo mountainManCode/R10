@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { View } from "react-native";
 import { connect } from "react-redux";
-import NavigationBar from "react-native-navbar";
 
 import { fetchFaves } from "../../redux/modules/faves";
 import { fetchSpeaker } from "../../redux/modules/speaker";
@@ -20,6 +19,14 @@ class SessionContainer extends Component {
     );
     this.props.dispatch(fetchFaves());
   }
+
+  static propTypes = {
+    dispatch: PropTypes.func,
+    route: PropTypes.object,
+    speakerData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    sessionData: PropTypes.object,
+    faves: PropTypes.object
+  };
 
   render() {
     return (

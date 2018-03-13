@@ -1,4 +1,4 @@
-import realm, { queryFaves } from "../../config/models";
+import { queryFaves } from "../../config/models";
 
 // ACTIONS
 
@@ -19,7 +19,6 @@ const getFavesError = error => ({ Type: GET_FAVES_ERROR, payload: error });
 export const fetchFaves = () => dispatch => {
   dispatch(getFavesLoading());
   const faves = queryFaves();
-  console.log(faves);
   dispatch(getFaves(faves));
 };
 

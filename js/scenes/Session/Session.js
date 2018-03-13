@@ -22,11 +22,20 @@ class Session extends Component {
       this.forceUpdate();
     });
   }
+
   componentWillUnmount() {
     realm.removeListener("change", () => {
       this.forceUpdate();
     });
   }
+
+  static propTypes = {
+    dispatch: PropTypes.func,
+    route: PropTypes.object,
+    speakerData: PropTypes.array,
+    sessionData: PropTypes.object,
+    faves: PropTypes.object
+  };
 
   render() {
     const { session, speaker, faves } = this.props;
@@ -95,10 +104,11 @@ class Session extends Component {
     );
   }
 }
-Session.propTypes = {
-  speaker: PropTypes.object,
-  session: PropTypes.object,
 
+Session.propTypes = {
+  speakerData: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  session: PropTypes.object,
   faves: PropTypes.object
 };
+
 export default Session;

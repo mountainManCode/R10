@@ -1,20 +1,21 @@
 //import liraries
 import React, { Component } from "react";
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // import { View, Text, StyleSheet } from 'react-native';
 import { connect } from "react-redux";
-import NavigationBar from "react-native-navbar";
-
-// import fetchSpeaker from "../../redux/modules/speaker";
+// import NavigationBar from "react-native-navbar";
 
 import Speaker from "./Speaker";
 
-// create a component
 class SpeakerContainer extends Component {
   constructor() {
     super();
     this.state = {};
   }
+
+  static propTypes = {
+    speakerData: PropTypes.object
+  };
 
   static route = {
     navigationBar: {
@@ -22,20 +23,10 @@ class SpeakerContainer extends Component {
     }
   };
 
-  // componentDidMount() {
-  //   this.props.dispatch(fetchSpeaker());
-  // }
-  // this.props.route.params.speakerData
-  // console.log(this.props.route.params.speakerData);
-  // return <Speaker data={this.props.route.params.speakerData} />;
-
   render() {
-    console.log(this.props.route.params.speakerData);
-
     return <Speaker speaker={this.props.speakerData} />;
   }
 }
-// return <Speaker dataSpeaker={this.props.route.params.speakerData} />;
 
 const mapStateToProps = state => ({
   isLoading: state.speaker.isLoading,
@@ -43,6 +34,4 @@ const mapStateToProps = state => ({
   error: state.speaker.error
 });
 
-//make this component available to the app
 export default connect(mapStateToProps)(SpeakerContainer);
-// export default SpeakerContainer;

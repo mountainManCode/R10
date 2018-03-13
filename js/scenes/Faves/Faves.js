@@ -1,7 +1,7 @@
 //import liraries
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import { FavesEventList } from "../../components/FavesEventList";
 
@@ -14,6 +14,9 @@ const Faves = ({ data }) => {
       <FavesEventList data={data} />
     </View>
   );
+};
+Faves.propTypes = {
+  data: PropTypes.array
 };
 
 export default Faves;

@@ -36,8 +36,9 @@ const Speaker = ({ speaker }) => {
     </ScrollView>
   );
 };
+
 Speaker.propTypes = {
-  speaker: PropTypes.array
+  speaker: PropTypes.object
 };
 
 export default Speaker;

@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { View } from "react-native";
 
 import Faves from "./Faves";
@@ -61,7 +61,10 @@ const mapStateToProps = state => ({
   sessionError: state.session.error
 });
 
-//make this component available to the app
-// export default FavesContainer;
+FavesContainer.propTypes = {
+  dispatch: PropTypes.func,
+  sessionData: PropTypes.array,
+  faves: PropTypes.object
+};
 
 export default connect(mapStateToProps)(FavesContainer);

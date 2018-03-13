@@ -1,11 +1,9 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import {
   View,
   Text,
   SectionList,
-  ListItem,
-  Header,
   TouchableOpacity,
   Platform
 } from "react-native";
@@ -22,7 +20,7 @@ export const EventList = ({ data, faves }) => {
   return (
     <View>
       <SectionList
-        renderItem={({ item, faves, data }) => (
+        renderItem={({ item }) => (
           <View style={styles.container}>
             <TouchableOpacity onPress={() => goToSession("schedule", item)}>
               <Text style={styles.title}>{item.title}</Text>
@@ -54,4 +52,9 @@ export const EventList = ({ data, faves }) => {
       />
     </View>
   );
+};
+
+EventList.propTypes = {
+  data: PropTypes.array,
+  faves: PropTypes.object
 };

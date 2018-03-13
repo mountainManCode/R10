@@ -1,7 +1,6 @@
 //import liraries
 import React, { Component } from "react";
-// import PropTypes from 'prop-types';
-// import { View } from "react-native";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Schedule from "./Schedule";
@@ -21,6 +20,13 @@ class ScheduleContainer extends Component {
     this.props.dispatch(fetchFaves());
   }
 
+  static propTypes = {
+    dispatch: PropTypes.func,
+    data: PropTypes.array,
+    faves: PropTypes.object,
+    isLoading: PropTypes.bool
+  };
+
   render() {
     return (
       <Schedule
@@ -37,7 +43,6 @@ const mapStateToProps = state => ({
   data: state.session.sessionData,
   error: state.session.error,
   faves: state.faves.faves
-  // favesError: state.faves.error
 });
 
 export default connect(mapStateToProps)(ScheduleContainer);
